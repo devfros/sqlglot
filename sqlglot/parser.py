@@ -3739,7 +3739,7 @@ class Parser:
                 is_unpivot=self._prev.token_type == TokenType.UNPIVOT
             )
         elif self._match(TokenType.FROM):
-            from_ = self._parse_from(skip_from_token=True, consume_pipe=True)
+            from_ = self._parse_from(joins=True, skip_from_token=True, consume_pipe=True)
             # Support parentheses for duckdb FROM-first syntax
             select = self._parse_select(from_=from_)
             if select:
